@@ -1,0 +1,25 @@
+body{
+     display: flex;
+     flex-direction: column;
+     background-color: antiquewhite;
+}
+.teamDiv{
+     border: 1px solid black;
+     display: flex;
+     flex-direction: column;
+     width: 650px;
+}
+.teamViewDiv
+{
+
+}
+.inputsDiv{
+     display: flex;
+     flex-direction: row;
+     
+}
+.inputDiv{
+     display: flex;
+     flex-direction: column;
+     margin: 20px;
+}

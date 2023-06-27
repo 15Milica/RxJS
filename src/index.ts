@@ -1,9 +1,14 @@
-console.log("milica");
+import { createElements,drawBodyContainer} from "./draw/drawfunction";
+import {makeTeamObs} from "./controllers/observables";
 
-const divPoc = document.createElement("div");
-document.body.appendChild(divPoc);
-let labela = document.createElement("h1");
-labela.innerHTML="Competition";
-divPoc.appendChild(labela);
-const input = document.createElement("input");
-divPoc.appendChild(input);
+let inputFields: HTMLInputElement[] = [];
+let teamViewContainer: HTMLDivElement = document.createElement("div");
+
+let driverDetails: HTMLDivElement[] = [];
+let driverNameLabels: HTMLLabelElement[] = [];
+let driverStatsLabels: HTMLLabelElement[] = [];
+let positionDivs: HTMLDivElement[] = [];
+
+createElements(inputFields, driverDetails, driverNameLabels, driverStatsLabels, teamViewContainer, positionDivs);
+drawBodyContainer(document.body, teamViewContainer, inputFields);
+makeTeamObs( inputFields, positionDivs, driverDetails, driverNameLabels, driverStatsLabels);
