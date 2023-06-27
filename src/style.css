@@ -1,25 +1,42 @@
 body{
+     background-image: url("./image/image1.jpg");
+     background-size:cover;
+     background-repeat: no-repeat;
      display: flex;
      flex-direction: column;
-     background-color: antiquewhite;
-}
+     flex-wrap: wrap;
+}  
 .teamDiv{
-     border: 1px solid black;
+     border: 3px solid black;
      display: flex;
      flex-direction: column;
      width: 650px;
+     background-color: white;
+     margin-top: 200px;
 }
 .teamViewDiv
 {
-
-}
-.inputsDiv{
      display: flex;
      flex-direction: row;
-     
+     justify-content: space-around;
+     margin-bottom: 10px;
 }
-.inputDiv{
+.inputsDiv
+{
+     display: flex;
+     flex-direction: row;
+}
+.inputDiv
+{
      display: flex;
      flex-direction: column;
      margin: 20px;
+}
+.driverDetails
+{
+     display: flex;
+     flex-direction: column;
+     border: 2px solid black;
+     height:200px;
+     background-color:lightblue;
 }

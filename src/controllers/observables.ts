@@ -70,33 +70,33 @@ import {
        )
      );
    
-     // const defenderObs = playerInputObs(
-     //   inputFields[1],
-     //   positionDivs[1],
-     //   "defenders"
-     // );
-     // defenderObs.subscribe((player: Player) =>
-     //   drawPlayer(
-     //     positionDivs[1],
-     //     player,
-     //     playerDetails[1],
-     //     playerNameLabels[1],
-     //     playerStatsLabels[1]
-     //   )
-     // );
+     const driver2 = playerInputObs(
+       inputFields[1],
+       positionDivs[1],
+       "driver2"
+     );
+     driver2.subscribe((driver: Driver) =>
+       drawDriver(
+         positionDivs[1],
+         driver,
+         driverDetails[1],
+         driverNameLabels[1],
+         driverStatsLabels[1]
+       )
+     );
    
-     // const leftMidfielderObs = playerInputObs(
-     //   inputFields[2],
-     //   positionDivs[2],
-     //   "leftmids"
-     // );
-     // leftMidfielderObs.subscribe((player: Player) =>
-     //   drawPlayer(
-     //     positionDivs[2],
-     //     player,
-     //     playerDetails[2],
-     //     playerNameLabels[2],
-     //     playerStatsLabels[2]
-     //   )
-     // );
+     const driver3 = playerInputObs(
+       inputFields[2],
+       positionDivs[2],
+       "driver3"
+     );
+     driver3.subscribe((driver: Driver) =>
+       drawDriver(
+         positionDivs[2],
+         driver,
+         driverDetails[2],
+         driverNameLabels[2],
+         driverStatsLabels[2]
+       )
+     );
  }

@@ -6,9 +6,9 @@ export function drawBodyContainer(
      inputs: HTMLInputElement[]
      ) 
      {
-          const title : HTMLElement = document.createElement("h1");
-          title.innerHTML ="Racing";
-          host.appendChild(title);
+          // const title : HTMLElement = document.createElement("h1");
+          // title.innerHTML ="Racing";
+          // host.appendChild(title);
 
           const teamContainer: HTMLDivElement = document.createElement("div");
           teamContainer.className="teamDiv";
@@ -54,7 +54,7 @@ export function createElements(
           for (let i = 0; i < 3; ++i) {
                inputFields[i] = document.createElement("input");
                driverDetails[i] = document.createElement("div");
-               driverDetails[i].className ="playerDetails";
+               driverDetails[i].className ="driverDetails";
                driverNameLabels[i] = document.createElement("label");
                driverStatsLabels[i] = document.createElement("label");
           }
@@ -81,16 +81,14 @@ export function drawDriver(
           driverDetailsDiv.appendChild(driverNameLbl);
           driverDetailsDiv.appendChild(driverStatsLbl);
           if (driver) {
-            driverDetailsDiv.style.backgroundColor = "gold";
-        
             driverNameLbl.innerHTML = driver.name;
-        
-            driverStatsLbl.innerHTML = `Wins: ${driver.wins} Car: ${driver.car} Speed: ${driver.speed}`;
+            driverStatsLbl.innerHTML = `Wins: ${driver.wins}
+             Car: ${driver.car} 
+             Speed: ${driver.speed}`;
           } else {
             host.appendChild(driverDetailsDiv);
             driverDetailsDiv.appendChild(driverNameLbl);
             driverNameLbl.innerHTML = "Player not found";
-            driverDetailsDiv.style.backgroundColor = "red";
             driverStatsLbl.innerHTML = "";
           }
         }
