@@ -11,7 +11,7 @@ import {
      toArray,
    } from "rxjs";
    import { environments } from "../environments";
-   //import { Competition } from "../models/racing";
+   import { Competition } from "../models/racing";
    import { TeamOpponent } from "../models/teamOpponent";
    import { Driver } from "../models/driver";
    import { Team } from "../models/team";
@@ -53,7 +53,8 @@ import {
      positionDivs: HTMLDivElement[],
      driverDetails: HTMLDivElement[],
      driverNameLabels: HTMLLabelElement[],
-     driverStatsLabels: HTMLLabelElement[]
+     driverStatsLabels: HTMLLabelElement[],
+     driverImgCar: HTMLImageElement[]
    ) {
      const driver1 = playerInputObs(
        inputFields[0],
@@ -66,7 +67,8 @@ import {
          driver,
          driverDetails[0],
          driverNameLabels[0],
-         driverStatsLabels[0]
+         driverStatsLabels[0],
+         driverImgCar[0]
        )
      );
    
@@ -81,7 +83,8 @@ import {
          driver,
          driverDetails[1],
          driverNameLabels[1],
-         driverStatsLabels[1]
+         driverStatsLabels[1],
+         driverImgCar[1]
        )
      );
    
@@ -96,7 +99,33 @@ import {
          driver,
          driverDetails[2],
          driverNameLabels[2],
-         driverStatsLabels[2]
+         driverStatsLabels[2],
+         driverImgCar[2]
        )
      );
- }
+     combineLatest([
+      driver1,
+      driver2,
+      driver3
+    ]).subscribe(([dr1, dr2, dr3]) => {
+      if (dr1 && dr2 && dr3) {
+        let team = new Team([dr1, dr2, dr3]);
+        let competition = new Competition(getOpponents(), team);
+        competition.startCompetition();
+      } else {
+        console.log("wrong input");
+      }
+    });
+  }
+  
+  export function getOpponents(): Observable<TeamOpponent[]> {
+    return from(
+      fetch(`${environments.API_URL}/teams`)
+        .then((res) => {
+          if (res.ok) return res.json();
+          else throw new Error("Team not found");
+        })
+        .catch((err) => console.log("error"))
+    );
+  }
+ 

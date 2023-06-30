@@ -3,8 +3,7 @@ body{
      background-size:cover;
      background-repeat: no-repeat;
      display: flex;
-     flex-direction: column;
-     flex-wrap: wrap;
+     flex-direction: row;
 }  
 .teamDiv{
      border: 3px solid black;
@@ -38,5 +37,25 @@ body{
      flex-direction: column;
      border: 2px solid black;
      height:200px;
+     width: 150px;
      background-color:lightblue;
+     align-items: center;
+     justify-content: space-around;
+}
+label
+{
+     font-size: 18px;
+}
+.driverImg
+{
+     width: 100px;
+     height: 100px;
+}
+.resultsDiv
+{
+     display: flex;
+     flex-direction: column;
+     margin-top: 200px;
+     background-color: lightblue;
+     margin-left: 20px;
 }

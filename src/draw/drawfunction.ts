@@ -6,10 +6,6 @@ export function drawBodyContainer(
      inputs: HTMLInputElement[]
      ) 
      {
-          // const title : HTMLElement = document.createElement("h1");
-          // title.innerHTML ="Racing";
-          // host.appendChild(title);
-
           const teamContainer: HTMLDivElement = document.createElement("div");
           teamContainer.className="teamDiv";
           host.appendChild(teamContainer);
@@ -35,7 +31,7 @@ function drawInputs(host: HTMLElement, inputs: HTMLInputElement[]) {
        inputDiv.className="inputDiv";
        inputsContainer.appendChild(inputDiv);
    
-       const labela: HTMLLabelElement = document.createElement("label");
+       const labela: HTMLElement = document.createElement("h3");
        labela.innerHTML = labelValues[ind];
        inputDiv.appendChild(labela);
        inputDiv.appendChild(inputField);
@@ -47,6 +43,7 @@ export function createElements(
      driverDetails: HTMLDivElement[],
      driverNameLabels: HTMLLabelElement[],
      driverStatsLabels: HTMLLabelElement[],
+     driverImgCar:HTMLImageElement[],
      teamViewContainer: HTMLDivElement,
      positionDivs: HTMLDivElement[]
      )
@@ -57,6 +54,8 @@ export function createElements(
                driverDetails[i].className ="driverDetails";
                driverNameLabels[i] = document.createElement("label");
                driverStatsLabels[i] = document.createElement("label");
+               driverImgCar[i] = document.createElement("img");
+               driverImgCar[i].className ="driverImg";
           }
           let classNames: string[] = [
                "driver1",
@@ -75,20 +74,51 @@ export function drawDriver(
           driver: Driver,
           driverDetailsDiv: HTMLDivElement,
           driverNameLbl: HTMLLabelElement,
-          driverStatsLbl: HTMLLabelElement
+          driverStatsLbl: HTMLLabelElement,
+          driverImgCar: HTMLImageElement
         ) {
           host.appendChild(driverDetailsDiv);
           driverDetailsDiv.appendChild(driverNameLbl);
           driverDetailsDiv.appendChild(driverStatsLbl);
+          driverDetailsDiv.appendChild(driverImgCar);
           if (driver) {
             driverNameLbl.innerHTML = driver.name;
-            driverStatsLbl.innerHTML = `Wins: ${driver.wins}
-             Car: ${driver.car} 
+            driverStatsLbl.innerHTML = `Club: ${driver.club} Wins: ${driver.wins} 
              Speed: ${driver.speed}`;
+             driverImgCar.src = driver.car;
           } else {
             host.appendChild(driverDetailsDiv);
             driverDetailsDiv.appendChild(driverNameLbl);
             driverNameLbl.innerHTML = "Player not found";
             driverStatsLbl.innerHTML = "";
+            driverImgCar.src = "https://us.v-cdn.net/6022045/uploads/defaultavatar.png";
           }
+        }
+
+export function drawResults(
+          myTeamName:string,
+          opponentName: string,
+          myScore: number,
+          opponentScore: number,
+          result: string
+        ) {
+          const host = document.querySelector(".resultsDiv");
+          const resultLabel = document.createElement("label");
+          host.appendChild(resultLabel);
+        
+          switch (result) {
+            case "WIN":
+              resultLabel.style.color = "green";
+              break;
+            case "LOST":
+              resultLabel.style.color = "red";
+              break;
+            case "DRAW":
+              resultLabel.style.color = "yellow";
+              break;
+            default:
+              resultLabel.style.color = "white";
+          }
+        
+          resultLabel.innerHTML = `Racing ${myTeamName} vs ${opponentName}, ${result}: (${myScore}:${opponentScore})`;
         }

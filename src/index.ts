@@ -7,8 +7,13 @@ let teamViewContainer: HTMLDivElement = document.createElement("div");
 let driverDetails: HTMLDivElement[] = [];
 let driverNameLabels: HTMLLabelElement[] = [];
 let driverStatsLabels: HTMLLabelElement[] = [];
+let driverImgCar: HTMLImageElement[]=[];
 let positionDivs: HTMLDivElement[] = [];
 
-createElements(inputFields, driverDetails, driverNameLabels, driverStatsLabels, teamViewContainer, positionDivs);
+createElements(inputFields, driverDetails, driverNameLabels, driverStatsLabels, driverImgCar, teamViewContainer, positionDivs);
 drawBodyContainer(document.body, teamViewContainer, inputFields);
-makeTeamObs( inputFields, positionDivs, driverDetails, driverNameLabels, driverStatsLabels);
+makeTeamObs( inputFields, positionDivs, driverDetails, driverNameLabels, driverStatsLabels, driverImgCar);
+
+const resultsDiv = document.createElement("div");
+resultsDiv.classList.add("resultsDiv");
+document.body.appendChild(resultsDiv);
