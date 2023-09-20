@@ -11,7 +11,7 @@ import {
      toArray,
    } from "rxjs";
    import { environments } from "../environments";
-   import { Competition } from "../models/racing";
+   import { Racing } from "../models/racing";
    import { TeamOpponent } from "../models/teamOpponent";
    import { Driver } from "../models/driver";
    import { Team } from "../models/team";
@@ -110,8 +110,8 @@ import {
     ]).subscribe(([dr1, dr2, dr3]) => {
       if (dr1 && dr2 && dr3) {
         let team = new Team([dr1, dr2, dr3]);
-        let competition = new Competition(getOpponents(), team);
-        competition.startCompetition();
+        let racing = new Racing(getOpponents(), team);
+        racing.startRacing();
       } else {
         console.log("wrong input");
       }

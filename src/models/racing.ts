@@ -3,7 +3,7 @@ import { drawResults } from "../draw/drawfunction";
 import { TeamOpponent } from "./teamOpponent";
 import { Team } from "./team";
 
-export class Competition {
+export class Racing {
   myTeam: Team;
 
   opponents: TeamOpponent[] = [];
@@ -22,7 +22,7 @@ export class Competition {
       );
   }
 
-  startCompetition() {
+  startRacing() {
     this.opponentsObs.subscribe((opps) => {
       this.playGames(opps);
     });

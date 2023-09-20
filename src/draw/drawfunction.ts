@@ -1,4 +1,5 @@
 import { Driver } from "../models/driver";
+import { image } from "../image/image";
 
 export function drawBodyContainer(
      host: HTMLElement, 
@@ -91,7 +92,7 @@ export function drawDriver(
             driverDetailsDiv.appendChild(driverNameLbl);
             driverNameLbl.innerHTML = "Player not found";
             driverStatsLbl.innerHTML = "";
-            driverImgCar.src = "https://us.v-cdn.net/6022045/uploads/defaultavatar.png";
+            driverImgCar.src = image.IMAGE_URL;
           }
         }
 
